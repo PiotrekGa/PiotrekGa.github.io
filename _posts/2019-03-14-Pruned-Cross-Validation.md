@@ -40,4 +40,39 @@ Then the scores are averaged across the folds as presented as the final metric.
 
 The technique allows you to verify you're model's quality of the whole dataset available and therefore present the best
 possible predictions of its performance in unseen data. Its main disadvantage is a necessity of training the same model
-_n_ times. In the hyperparameters optimization case many folds are required.
+_n_ times. In the hyperparameters optimization case many folds are required and therefore the computation time if high.
+
+### Pruning idea
+
+As you can imagine scores from the folds and the final score are dependent on each other. I've made some simulations 
+studies to evaluate the correlation between cumulative metrics value after each fold and the final score.
+As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3
+out of 8. You can find a broader study of correlations distributions on the graph below.
+
+The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the 
+hyperparameters set without calculating all the folds.
+
+### The pruned cross-validation algorithm
+
+There are two versions of the algorithm: deterministic and probabilistic. The first one should be used with search 
+algorithms that don't require feedback from the cross-validation besides the best score achieved.
+
+Parameters:
+1. _t_ - tolerance
+2. _k_ - fold number at which first pruning may happen
+3. _n_ - number of folds 
+
+Proposed search with the deterministic algorithm and minimization objective:
+
+1. Define a model, a hyperparameter space and pruning parameters
+1. Choose an inital hyperparameters set to evaluate
+1. Calculate full cross-validation, save scores for all folds and the final score
+1. Choose hyperparamterse set to evaluate
+1. Calculate fold's score
+    * if number of fold is lower than _k_, got to point 5.
+    * if number of folds is equal to _n_ calculate the final score
+        * If the score is lower than the best score so far, set it's hyperparameters and best scores as the best one
+1. Evaluate whether current trial's mean score is below mean value of the best trial's scores (the same number as the 
+current trial) multiplied by (1 + _t_)
+    * If yes, got to point 5.
+    * Prune the trial, estimate the final score and go to point 4. otherwise
