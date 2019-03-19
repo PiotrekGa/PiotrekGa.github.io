@@ -54,18 +54,16 @@ hyperparameters set without calculating all the folds.
 
 ### The pruned cross-validation algorithm
 
-There are two versions of the algorithm: deterministic and probabilistic. The first one should be used with search 
-algorithms that don't require feedback from the cross-validation besides the best score achieved.
+The algorithm is base on deterministic comparison between equivalent folds' scores. There's also a probabilistic 
+version, but it's beyond scope of this post.
 
 Parameters:
-1. _t_ - tolerance
-2. _k_ - fold number at which first pruning may happen
-3. _n_ - number of folds 
+* _n_ - number of folds (integer, >= 2)
+* _t_ - tolerance (float, >=0.0, default=0.1)
+* _k_ - fold number at which first pruning may happen (integer, <= _n_, default=2)
 
-Proposed search with the deterministic algorithm and minimization objective:
-
-1. Define a model, a hyperparameter space and pruning parameters
-1. Choose an inital hyperparameters set to evaluate
+1. Define a model, a hyperparameters space and pruning parameters
+1. Choose an initial hyperparameters set to evaluate
 1. Calculate full cross-validation, save scores for all folds and the final score
 1. Choose hyperparamterse set to evaluate
 1. Calculate fold's score
@@ -76,3 +74,16 @@ Proposed search with the deterministic algorithm and minimization objective:
 current trial) multiplied by (1 + _t_)
     * If yes, got to point 5.
     * Prune the trial, estimate the final score and go to point 4. otherwise
+    
+The algorithm ensures that the best hyperparameters set is validation on all the folds, but it does not guarantee to
+indicate the best hyperparameters out of evaluated ones. The model can strongly underperform on initial folds and
+outperform on the latter ones. Even with medium sized datasets and proper data shuffle it's highly unlikely.
+
+### Speed benchmarking
+
+The main advantage of the pruned cross-validation is search speed increase. If the hyperparameters set yields poor
+results the cross-validation is pruned and therefore time and computation resources are saved.
+
+Below you can find a comparison between normal grid search and pruned grid search:
+
+![GridSearch vs PrunedGridSearch](https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/gs_vs_pgs.png "aa")
