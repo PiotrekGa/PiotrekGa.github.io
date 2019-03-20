@@ -49,8 +49,7 @@ studies to evaluate the correlation between cumulative metrics value after each 
 As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3
 out of 8. You can find a broader study of correlations distributions on the graph below.
 
-![Correlations](https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/correlations.png
-"Correlations")
+![Correlations](https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/correlations.png)
 
 The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the 
 hyperparameters set without calculating all the folds.
@@ -89,5 +88,19 @@ results the cross-validation is pruned and therefore time and computation resour
 
 Below you can find a comparison between normal grid search and pruned grid search:
 
-![GridSearch vs PrunedGridSearch](https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/gs_vs_pgs.png 
-"GridSearch vs PrunedGridSearch")
+![GridSearch vs PrunedGridSearch](https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/gs_vs_pgs.png)
+
+Grid Serach with pruned cross-validation was over 3 times faster than the traditional full validation search. The code to the experiment may be found in this [notebook](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/GridSearchCV_Benchmark.ipynb).
+
+#### Lower and higher speed bonds compared to full cross-validation
+
+The current implementation of the algorithm is based on simple lists operations, so it's computation cost may be considered non-existent. Because of that the upper boundary of the time is equal to the time needed for full cross-validation. The lower boundary is equal to computing full cross-validation in the first trial and _k / n_ foldsin following ones, where _k_ is the first folds do try pruning and _n_ is the number of folds for cross-validation. With hight number of trials the value will converge to _k / n_.
+
+### Implementation
+
+The method was implemented in `pruned-cv` Python package (you can find it [here](https://github.com/PiotrekGa/pruned-cv)). Two search algorithms were implemented: ` PrunedGridSearchCV` and `PrunedRandomizedSearchCV`. They have similar API as scikit-learn implementations of `GridSearchCV` and `RandomizedSearchCV`. Please refer to docstrings for more details.
+
+The package provides also `PrunedCV` object. It's the working horse of the package and can be used with other search algorithms like Bayesian Hyperparameter Optimization. Below you can find an example with Optuna package:
+
+{% gist 16cb64e046994bee9d55a87a62278872 %}
+
