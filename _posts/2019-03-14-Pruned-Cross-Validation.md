@@ -102,5 +102,4 @@ The method was implemented in `pruned-cv` Python package (you can find it [here]
 
 The package provides also `PrunedCV` object. It's the working horse of the package and can be used with other search algorithms like Bayesian Hyperparameter Optimization. Below you can find an example with Optuna package:
 
-{% gist 16cb64e046994bee9d55a87a62278872 %}
-
+<script src="https://gist.github.com/PiotrekGa/16cb64e046994bee9d55a87a62278872"></script>
