@@ -118,4 +118,4 @@ def objective(trial):
 study = optuna.create_study()
 study.optimize(objective, timeout=120)
 ```
-You can find a benchmarking notebook with Optuna [here](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/Usage_with_Optuna.ipynb).
+You can find a benchmarking notebook with Optuna [here](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/Usage_with_Optuna.ipynb) and Hyperopt [here](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/Usage_with_Hyperopt.ipynb). In the examples provided pruning limited trial's duration 2.8 and 5.7 times respectively leading to better final scores in both cases.
