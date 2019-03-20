@@ -98,7 +98,7 @@ The current implementation of the algorithm is based on simple lists operations,
 
 ### Implementation
 
-The method was implemented in `pruned-cv` Python package (you can find it [here](https://github.com/PiotrekGa/pruned-cv)). Two search algorithms were implemented: ` PrunedGridSearchCV` and `PrunedRandomizedSearchCV`. They have similar API as scikit-learn implementations of `GridSearchCV` and `RandomizedSearchCV`. Please refer to docstrings for more details.
+The method was implemented in `pruned-cv` Python package (you can find it [here](https://github.com/PiotrekGa/pruned-cv)). Two search algorithms were implemented: ` PrunedGridSearchCV` and `PrunedRandomizedSearchCV`. They have similar API as scikit-learn implementations of `GridSearchCV` and `RandomizedSearchCV`. They don't offer final model refit though. Please refer to docstrings for more details.
 
 The package provides also `PrunedCV` object. It's the working horse of the package and can be used with other search algorithms like Bayesian Hyperparameter Optimization. Below you can find a pseudocode example with Optuna package:
 
