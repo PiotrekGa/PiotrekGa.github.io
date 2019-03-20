@@ -109,7 +109,6 @@ from prunedcv import PrunedCV
 prun = PrunedCV(12, 0.1)
 
 def objective(trial):
-
 	params = choose parameters for the trial
     model.set_params(**params)
 
