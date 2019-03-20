@@ -100,6 +100,22 @@ The current implementation of the algorithm is based on simple lists operations,
 
 The method was implemented in `pruned-cv` Python package (you can find it [here](https://github.com/PiotrekGa/pruned-cv)). Two search algorithms were implemented: ` PrunedGridSearchCV` and `PrunedRandomizedSearchCV`. They have similar API as scikit-learn implementations of `GridSearchCV` and `RandomizedSearchCV`. Please refer to docstrings for more details.
 
-The package provides also `PrunedCV` object. It's the working horse of the package and can be used with other search algorithms like Bayesian Hyperparameter Optimization. Below you can find an example with Optuna package:
+The package provides also `PrunedCV` object. It's the working horse of the package and can be used with other search algorithms like Bayesian Hyperparameter Optimization. Below you can find a pseudocode example with Optuna package:
 
-{% gist 16cb64e046994bee9d55a87a62278872 %}
+```
+import optuna
+from prunedcv import PrunedCV
+
+prun = PrunedCV(12, 0.1)
+
+def objective(trial):
+
+	params = choose parameters for the trial
+    model.set_params(**params)
+
+    return prun.cross_val_score(model, x, y)
+
+study = optuna.create_study()
+study.optimize(objective, timeout=120)
+```
+You can find a benchmarking notebook with Optuna [here](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/Usage_with_Optuna.ipynb).
