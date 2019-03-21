@@ -41,7 +41,7 @@ As you can imagine scores from the folds and the final score are dependent on ea
 studies to evaluate the correlation between cumulative metrics value after each fold and the final score.
 As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3 out of 8. You can find a broader study of correlations distributions on the graph below.
 
-![Correlations](https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/correlations.png)
+![Correlations](https://raw.githubusercontent.com/PiotrekGa/PiotrekGa.github.io/master/images/correlations.png)
 
 The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the 
 hyperparameters set without calculating all the folds.
@@ -75,7 +75,7 @@ The main advantage of the pruned cross-validation is a search speed increase. If
 
 Below you can find a comparison between standard grid search and pruned grid search:
 
-![GridSearch vs PrunedGridSearch](https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/gs_vs_pgs.png)
+![GridSearch vs PrunedGridSearch](https://raw.githubusercontent.com/PiotrekGa/PiotrekGa.github.io/master/images/gs_vs_pgs.png)
 
 Grid Search with pruned cross-validation was over three times faster than the traditional full validation search. The code of the experiment may be found in this
 [notebook](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/GridSearchCV_Benchmark.ipynb).
