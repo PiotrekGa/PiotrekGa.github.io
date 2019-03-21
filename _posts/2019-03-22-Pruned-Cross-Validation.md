@@ -75,7 +75,8 @@ The main advantage of the pruned cross-validation is a search speed increase. If
 
 Below you can find a comparison between standard grid search and pruned grid search:
 
-![GridSearch vs PrunedGridSearch](https://raw.githubusercontent.com/PiotrekGa/PiotrekGa.github.io/master/images/gs_vs_pgs.png)
+<img src="images/gs_vs_pgs.png" alt="gs_vs_pgs">
+
 
 Grid Search with pruned cross-validation was over three times faster than the traditional full validation search. The code of the experiment may be found in this
 [notebook](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/GridSearchCV_Benchmark.ipynb).
