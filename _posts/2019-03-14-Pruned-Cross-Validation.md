@@ -118,3 +118,23 @@ study = optuna.create_study()
 study.optimize(objective, timeout=120)
 ```
 You can find a benchmarking notebook with Optuna [here](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/Usage_with_Optuna.ipynb) and Hyperopt [here](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/Usage_with_Hyperopt.ipynb). In the examples provided pruning limited trial's duration 2.8 and 5.7 times respectively leading to better final scores in both cases.
+
+### Research fields
+
+There are several fileds of research connected with the technique worth exploring:
+
+* How to find the best fold to start pruning?
+
+* How to find the best tolerance value before the study?
+
+* How does number of folds correspond with cumulative scores correlations with the final score?
+
+* How to predict the final score better?
+
+### Summary
+
+The pruned cross-validation technique allows you to save time and resources needed for hyperparameter optimization (it's possible to calculate higher and lower time saving bonds in comaprison to full cross-validation). It ensures the same level of overfitting prevention as standard cross-validation, but does not guarantee selection of the best parameters out of the verified ones.
+
+The `pruned-cv` package in version `0.0.1` implements the technique for L1 and L2 regression problems only.
+
+Please et me know what do you think about the technique and the package! I would really appreciate feedback from you. If you wish to help me in package development or are intereseted in research regarding the technique please let me know!
