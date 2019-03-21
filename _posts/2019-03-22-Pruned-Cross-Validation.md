@@ -33,7 +33,7 @@ But it's not proper cross-validation, right?
 
 Cross-validation is a technique of model's quality. First, you should choose a metric, which would represent the quality of your model. Then you split your training dataset into _n_ number of subsets, called folds (note you should use stratification if possible to ensure similar distributions in each set). Then you should train your model _n_ times at each time the training set be composed of _n - 1_ subset. The remaining one is treated as a validation set left for metric evaluation. Then the scores are averaged across the folds as presented as the final metric.
 
-<img source="https://upload.wikimedia.org/wikipedia/commons/1/1c/K-fold_cross_validation_EN.jpg" alt="cross-validation diagram">
+![cross-val](https://upload.wikimedia.org/wikipedia/commons/1/1c/K-fold_cross_validation_EN.jpg)
 
 The technique allows you to verify you're model's quality of the whole dataset available and therefore present the best possible predictions of its performance in unseen data. Its main disadvantage is a necessity of training the same model n times. In the hyperparameters optimization case many folds are required and therefore the computation time is high.
 
