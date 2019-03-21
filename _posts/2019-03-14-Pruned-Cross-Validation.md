@@ -40,7 +40,7 @@ Then the scores are averaged across the folds as presented as the final metric.
 
 The technique allows you to verify you're model's quality of the whole dataset available and therefore present the best
 possible predictions of its performance in unseen data. Its main disadvantage is a necessity of training the same model
-_n_ times. In the hyperparameters optimization case many folds are required and therefore the computation time if high.
+_n_ times. In the hyperparameters optimization case many folds are required and therefore the computation time is high.
 
 ### Pruning idea
 
@@ -78,7 +78,7 @@ current trial) multiplied by (1 + _t_)
     * Prune the trial, estimate the final score and go to point 4. otherwise
     
 The algorithm ensures that the best hyperparameters set is validation on all the folds, but it does not guarantee to
-indicate the best hyperparameters out of evaluated ones. The model can strongly underperform on initial folds and
+indicate the best hyperparameters out of evaluated ones. A model can strongly underperform on initial folds and
 outperform on the latter ones. Even with medium sized datasets and proper data shuffle it's highly unlikely.
 
 ### Speed benchmarking
@@ -94,7 +94,7 @@ Grid Serach with pruned cross-validation was over 3 times faster than the tradit
 
 #### Lower and higher speed bonds compared to full cross-validation
 
-The current implementation of the algorithm is based on simple lists operations, so it's computation cost may be considered non-existent. Because of that the upper boundary of the time is equal to the time needed for full cross-validation. The lower boundary is equal to computing full cross-validation in the first trial and _k / n_ foldsin following ones, where _k_ is the first folds do try pruning and _n_ is the number of folds for cross-validation. With hight number of trials the value will converge to _k / n_.
+The current implementation of the algorithm is based on simple lists operations, so it's computation cost may be considered non-existent. Because of that the upper boundary of the time is equal to the time needed for full cross-validation. The lower boundary is equal to computing full cross-validation in the first trial and _k / n_ folds in following ones, where _k_ is the first folds do try pruning and _n_ is the number of folds for cross-validation. With hight number of trials the value will converge to _k / n_.
 
 ### Implementation
 
@@ -137,4 +137,4 @@ The pruned cross-validation technique allows you to save time and resources need
 
 The `pruned-cv` package in version `0.0.1` implements the technique for L1 and L2 regression problems only.
 
-Please et me know what do you think about the technique and the package! I would really appreciate feedback from you. If you wish to help me in package development or are intereseted in research regarding the technique please let me know!
+Please let me know what do you think about the technique and the package! I would really appreciate feedback from you. If you wish to help me in package development or are intereseted in research regarding the technique please let me know!
