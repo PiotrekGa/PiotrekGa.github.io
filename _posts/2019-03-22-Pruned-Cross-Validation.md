@@ -28,7 +28,7 @@ The technique allows you to verify you're model's quality of the whole dataset a
 
 As you can imagine scores from the folds and the final score are dependent on each other. I've made some simulations studies to evaluate the correlation between cumulative metrics value after each fold and the final score.
 
-<center><i><small>correlations study</small></i></center>
+<center><i><small>Correlations study</small></i></center>
 <center><img src="/images/correlations.png"></center>
 
 As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3 out of 8. The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the hyperparameters set without calculating all the folds.
@@ -62,7 +62,7 @@ The main advantage of the pruned cross-validation is a search speed increase. If
 
 Below you can find a comparison between standard grid search and pruned grid search:
 
-<center><i><small>search speed benchmarking</small></i></center>
+<center><i><small>Search speed benchmarking</small></i></center>
 <center><img src="/images/gs_vs_pgs.png"></center>
 
 Grid Search with pruned cross-validation was over three times faster than the traditional full validation search. Pruned Randomized Search was almost three times faster than its unpruned version from scikit-learn. The code of the experiment may be found in this
@@ -115,6 +115,6 @@ There are several fields of research connected with the technique worth explorin
 
 The pruned cross-validation technique allows you to save time and resources needed for hyperparameter optimization (it's possible to calculate higher and lower time-saving bonds in comparison to full cross-validation). It ensures the same level of overfitting prevention as standard cross-validation but does not guarantee the selection of the best parameters out of the verified ones.
 
-The `pruned-cv` package in version `0.0.1` implements the technique for L1 and L2 regression problems only.
+The `pruned-cv` package in version `0.0.1`. It's at a very early stage of developement and implements the technique for L1 and L2 regression problems only.
 
-Please let me know what do you think about the technique and the package! I would appreciate feedback from you. If you wish to help me in package development or are interested in research regarding the method, please let me know!
+Please let me know what do you think about the technique and the package! I would appreciate feedback from you. If you wish to help me in package development or are interested in research regarding the method, please don't hestitate to contact me!
