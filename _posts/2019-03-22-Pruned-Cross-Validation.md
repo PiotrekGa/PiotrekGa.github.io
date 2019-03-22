@@ -42,6 +42,8 @@ Parameters:
 * _t_ - tolerance (float, >=0.0, default=0.1)
 * _k_ - fold number at which first pruning may happen (integer, <= _n_, default=2)
 
+The algorithm:
+```
 1. Define a model, a hyperparameters space and pruning parameters
 2. Choose an initial set of hyperparameters to evaluate
 3. Calculate full cross-validation, save scores for all folds and the final score
@@ -53,6 +55,7 @@ Parameters:
 6. Evaluate whether current trial's mean score is below mean value of the best trial's scores (the same number as the ongoing trial) multiplied by (_1 + t_)
     * If yes, got to point 5.
     * Else, prune the trial, estimate the final score and go to point 4. otherwise
+```
     
 The algorithm ensures that the best hyperparameters are validated on all the folds, but it does not guarantee to indicate the best hyperparameters out of evaluated ones. A model can strongly underperform on initial folds and outperform on the latter ones. Even with medium sized datasets and proper data shuffle it's highly unlikely.
 
