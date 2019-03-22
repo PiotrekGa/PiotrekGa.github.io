@@ -27,7 +27,7 @@ The technique allows you to verify you're model's quality of the whole dataset a
 
 As you can imagine scores from the folds and the final score are dependent on each other. I've made some simulations studies to evaluate the correlation between cumulative metrics value after each fold and the final score.
 
-![correlations](/images/correlations.png)
+<center><img src="/images/correlations.png"></center>
 
 As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3 out of 8. The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the hyperparameters set without calculating all the folds.
 
@@ -60,7 +60,7 @@ The main advantage of the pruned cross-validation is a search speed increase. If
 
 Below you can find a comparison between standard grid search and pruned grid search:
 
-![gs vs pgs](/images/gs_vs_pgs.png)
+<center><img src="/images/gs_vs_pgs.png"></center>
 
 Grid Search with pruned cross-validation was over three times faster than the traditional full validation search. Pruned Randomized Search was almost three times faster than its unpruned version from scikit-learn. The code of the experiment may be found in this
 [notebook](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/GridSearchCV_Benchmark.ipynb).
