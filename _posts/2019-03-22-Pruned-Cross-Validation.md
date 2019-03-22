@@ -18,6 +18,7 @@ By looking at folds scores, I realized that only with first 2-3 folds' scores I 
 
 Cross-validation is a technique of model's quality. First, you should choose a metric, which would represent the quality of your model. Then you split your training dataset into _n_ number of subsets, called folds (note you should use stratification if possible to ensure similar distributions in each set). Then you should train your model _n_ times at each time the training set be composed of _n - 1_ subset. The remaining one is treated as a validation set left for metric evaluation. Then the scores are averaged across the folds as presented as the final metric.
 
+<center><small>Cross-validation visual explanation</small></center>
 <center><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/K-fold_cross_validation_EN.jpg"></center>
 <center><i><small>source: wikipedia.org</small></i></center>
 
@@ -27,6 +28,7 @@ The technique allows you to verify you're model's quality of the whole dataset a
 
 As you can imagine scores from the folds and the final score are dependent on each other. I've made some simulations studies to evaluate the correlation between cumulative metrics value after each fold and the final score.
 
+<center><i><small>correlations study</small></i></center>
 <center><img src="/images/correlations.png"></center>
 
 As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3 out of 8. The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the hyperparameters set without calculating all the folds.
@@ -60,6 +62,7 @@ The main advantage of the pruned cross-validation is a search speed increase. If
 
 Below you can find a comparison between standard grid search and pruned grid search:
 
+<center><i><small>search speed benchmarking</small></i></center>
 <center><img src="/images/gs_vs_pgs.png"></center>
 
 Grid Search with pruned cross-validation was over three times faster than the traditional full validation search. Pruned Randomized Search was almost three times faster than its unpruned version from scikit-learn. The code of the experiment may be found in this
