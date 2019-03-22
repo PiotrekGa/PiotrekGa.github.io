@@ -24,7 +24,7 @@ Cross-validation is a technique of model's quality. First, you should choose a m
 
 The technique allows you to verify you're model's quality of the whole dataset available and therefore present the best possible predictions of its performance in unseen data. Its main disadvantage is a necessity of training the same model _n_ times. In the hyperparameters optimization case many folds are required and therefore the computation time is high.
 
-### Pruning idea
+### The pruning idea
 
 As you can imagine scores from the folds and the final score are dependent on each other. I've made some simulations studies to evaluate the correlation between cumulative metrics value after each fold and the final score.
 
