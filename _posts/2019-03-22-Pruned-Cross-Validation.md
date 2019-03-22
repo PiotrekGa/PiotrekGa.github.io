@@ -29,7 +29,7 @@ As you can imagine scores from the folds and the final score are dependent on ea
 
 ![correlations](/images/correlations.png)
 
-As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3 out of 8. You can find a broader study of correlations distributions on the graph below. The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the hyperparameters set without calculating all the folds.
+As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3 out of 8. The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the hyperparameters set without calculating all the folds.
 
 ### The pruned cross-validation algorithm
 
@@ -41,16 +41,16 @@ Parameters:
 * _k_ - fold number at which first pruning may happen (integer, <= _n_, default=2)
 
 1. Define a model, a hyperparameters space and pruning parameters
-1. Choose an initial set of hyperparameters to evaluate
-1. Calculate full cross-validation, save scores for all folds and the final score
-1. Choose a hyperparameters set to evaluate
-1. Calculate fold's score
-    * if the fold number is lower than _k_, got to point 5.
-    * if the folds number is equal to _n_ calculate the final score
+2. Choose an initial set of hyperparameters to evaluate
+3. Calculate full cross-validation, save scores for all folds and the final score
+4. Choose a hyperparameters set to evaluate
+5. Calculate fold's score
+    * If the fold number is lower than _k_, got to the beginig of point 5.
+    * If the folds number is equal to _n_ calculate the final score
         * If the score is lower than the best score so far, set its hyperparameters and best scores as the best one
-1. Evaluate whether current trial's mean score is below mean value of the best trial's scores (the same number as the ongoing trial) multiplied by (_1 + t_)
+6. Evaluate whether current trial's mean score is below mean value of the best trial's scores (the same number as the ongoing trial) multiplied by (_1 + t_)
     * If yes, got to point 5.
-    * Prune the trial, estimate the final score and go to point 4. otherwise
+    * Else, prune the trial, estimate the final score and go to point 4. otherwise
     
 The algorithm ensures that the best hyperparameters are validated on all the folds, but it does not guarantee to indicate the best hyperparameters out of evaluated ones. A model can strongly underperform on initial folds and outperform on the latter ones. Even with medium sized datasets and proper data shuffle it's highly unlikely.
 
@@ -62,8 +62,7 @@ Below you can find a comparison between standard grid search and pruned grid sea
 
 ![gs vs pgs](/images/gs_vs_pgs.png)
 
-
-Grid Search with pruned cross-validation was over three times faster than the traditional full validation search. The code of the experiment may be found in this
+Grid Search with pruned cross-validation was over three times faster than the traditional full validation search. Pruned Randomized Search was almost three times faster than its unpruned version from scikit-learn. The code of the experiment may be found in this
 [notebook](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/GridSearchCV_Benchmark.ipynb).
 
 #### Lower and upper speed bonds compared to full cross-validation
