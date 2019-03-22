@@ -48,7 +48,7 @@ The algorithm is base on a deterministic comparison between equivalent folds' sc
 3. Calculate full cross-validation, save scores for all folds and the final score
 4. Choose a hyperparameters set to evaluate
 5. Calculate fold's score
-    * If the fold number is lower than _k_, got to the beginig of point 5.
+    * If the fold number is lower than _k_, got to the begining of point 5.
     * If the folds number is equal to _n_ calculate the final score
         * If the score is lower than the best score so far, set its hyperparameters and best scores as the best one
 6. Evaluate whether current trial's mean score is below mean value of the best trial's scores (the same number as the ongoing trial) multiplied by (_1 + t_)
