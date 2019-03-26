@@ -119,6 +119,6 @@ There are several fields of research connected with the technique worth explorin
 
 The pruned cross-validation technique allows you to save time and resources needed for hyperparameter optimization (it's possible to calculate higher and lower time-saving bonds in comparison to full cross-validation). It ensures the same level of overfitting prevention as standard cross-validation but does not guarantee the selection of the best parameters out of the verified ones.
 
-The `pruned-cv` package is in version `0.0.1`. It's at a very early stage of development and implements the technique for L1 and L2 regression problems only.
+The `pruned-cv` package is in version `0.0.1`. It's at a very early stage of development and implements the technique only for L1 and L2 regression and classification with accuracy score.
 
 Please let me know what do you think about the technique and the package! I would appreciate feedback from you. If you wish to help me in package development or are interested in research regarding the method, please don't hesitate to contact me!
