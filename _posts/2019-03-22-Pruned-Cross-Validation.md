@@ -32,7 +32,7 @@ As you can imagine scores from the folds and the final score are dependent on ea
 <center><small>Correlations study</small></center>
 <center><img src="/images/correlations.png"></center>
 
-As you can see the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3 out of 8. The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the hyperparameters set without calculating all the folds.
+As you can see in this case the correlation with the final score rises very fast with subsequent folds reaching 0.98 on fold 3 out of 8. The idea of pruned cross-validation is based on the high correlations and our ability to partially assess the hyperparameters set without calculating all the folds.
 
 ### The pruned cross-validation algorithm
 
@@ -56,7 +56,7 @@ The algorithm is based on a deterministic comparison between equivalent folds' s
     * If yes, got to point 5.
     * Else, prune the trial, estimate the final score and go to point 4. otherwise
     
-The algorithm ensures that the best hyperparameters are validated on all the folds, but it does not guarantee to indicate the best hyperparameters out of evaluated ones. A model can strongly underperform on initial folds and outperform on the latter ones. Even with medium sized datasets and proper data shuffle it's highly unlikely.
+The algorithm ensures that the best hyperparameters are validated on all the folds, but it does not guarantee to find the best hyperparameters out of evaluated ones. A model can strongly underperform on initial folds and outperform on the latter ones. Even with medium sized datasets and proper data shuffle it's highly unlikely.
 
 ### Speed benchmarking
 
@@ -71,7 +71,7 @@ Grid Search with pruned cross-validation was over three times faster than the tr
 
 #### Lower and upper speed bonds compared to full cross-validation
 
-The current implementation of the algorithm is based on simple lists operations, so its computation cost may be considered non-existent. Because of that, the upper boundary of the time is equal to the time needed for full cross-validation. The lower limit is equivalent to full computing cross-validation in the first trial, and _k / n_ folds in following ones, where k is the first folds do try pruning, and n is the number of folds for cross-validation. With the high number of trials, the value will converge to _k / n_.
+The current implementation of the algorithm is based on simple lists operations, so its computation cost may be considered non-existent. Because of that, the upper boundary of the time is equal to the time needed for full cross-validation. The lower limit is equivalent to full computing cross-validation in the first trial, and _k / n_ folds in following ones, where k is the first folds do try pruning, and n is the number of folds for cross-validation. With the high number of trials, the value should converge to _k / n_.
 
 ### Implementation
 
