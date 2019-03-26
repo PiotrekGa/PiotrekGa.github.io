@@ -3,6 +3,7 @@ published: true
 ---
 ## 2019-03-22 Pruned Cross Validation for hyperparameters optimization
 _Allowing you to optimize your model's hyperparameters faster_
+
 ### Introduction
 
 There are several reasons why you would like to use cross-validation: it helps you to assess the quality of the model, optimize its hyperparameters and test various architectures. There are also a variable number of reasons why you wouldn't like it - this variable is the number of folds. For each fold, the model has to be trained. With computationally intensive algorithms and big datasets, training each fold may be a cumbersome endeavor.
