@@ -2,7 +2,7 @@
 published: true
 ---
 ## 2019-03-22 Pruned Cross Validation for hyperparameter optimization
-_Allowing you to optimize your model's hyperparameters faster_
+_The new technique's motivation, design and implementation_
 
 
 ### Introduction
