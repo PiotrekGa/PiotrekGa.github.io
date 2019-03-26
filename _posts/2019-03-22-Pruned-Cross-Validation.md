@@ -2,7 +2,7 @@
 published: true
 ---
 ## 2019-03-22 Pruned Cross Validation for hyperparameter optimization
-_The new technique's motivation, design and implementation_
+_The new technique's motivation, design, and implementation_
 
 
 ### Introduction
