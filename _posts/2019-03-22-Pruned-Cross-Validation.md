@@ -69,7 +69,7 @@ Below you can find a comparison between standard grid search and pruned grid sea
 
 Grid Search with pruned cross-validation was over three times faster than the traditional full validation search. Pruned Randomized Search was almost three times faster than its unpruned version from scikit-learn. The code of the experiment may be found in this [notebook](https://github.com/PiotrekGa/pruned-cv/blob/master/examples/GridSearchCV_Benchmark.ipynb).
 
-#### Lower and upper speed bonds compared to full cross-validation
+#### Lower and upper speed bounds compared to full cross-validation
 
 The current implementation of the algorithm is based on simple lists operations, so its computation cost may be considered non-existent. Because of that, the upper boundary of the time is equal to the time needed for full cross-validation. The lower limit is equivalent to full computing cross-validation in the first trial, and _k / n_ folds in following ones, where k is the first folds do try pruning, and n is the number of folds for cross-validation. With the high number of trials, the value should converge to _k / n_.
 
