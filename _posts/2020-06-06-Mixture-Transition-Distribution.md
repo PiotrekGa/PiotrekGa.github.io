@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 ---
 ## 2020-06-06 Mixture Transition Distribution
 _Model and example_
