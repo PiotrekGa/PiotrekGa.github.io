@@ -6,8 +6,8 @@ _Model and example_
 
 ### Introduction
 
-<div style="text-align:center"><img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png"></div>
-
+<div style="text-align:center"><center><img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png"></center></div>
+<img align="center" src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png">
 
 ### Model definition
 
