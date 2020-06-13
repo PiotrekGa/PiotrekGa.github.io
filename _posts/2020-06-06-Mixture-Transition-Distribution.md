@@ -6,7 +6,7 @@ _Model and example_
 
 ### Introduction
 
-<center><img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png"></center>
+<div style="text-align:center"><img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png"></div>
 
 
 ### Model definition
