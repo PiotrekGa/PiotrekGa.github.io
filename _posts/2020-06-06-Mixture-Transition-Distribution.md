@@ -106,3 +106,6 @@ _Model and example_
 ### Usage example
 
 ### Summary
+
+### Final notes
+LaTeX formulas were generated with [latex.codecogs.com](https://www.codecogs.com/latex/eqneditor.php)
