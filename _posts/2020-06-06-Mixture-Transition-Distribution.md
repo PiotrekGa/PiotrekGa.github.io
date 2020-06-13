@@ -9,6 +9,10 @@ _Model and example_
 <div style="text-align:center"><center><img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png"></center></div>
 <img align="center" src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png">
 
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png">
+</p>
+
 ### Model definition
 
 ### Implementation
