@@ -6,7 +6,8 @@ _Model and example_
 
 ### Introduction
 
-![aa](https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png)
+<center><img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png"></center>
+
 
 ### Model definition
 
