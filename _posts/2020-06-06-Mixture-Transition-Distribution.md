@@ -4,6 +4,17 @@ published: false
 ## 2020-06-06 Mixture Transition Distribution
 _Model, usage and example_
 
+### Intention
+
+The intention of the article is to outline the Mixture Transition Distribution model.
+A reader will find here definitions of Markov Chain and MTD models and presentation of a Python package 
+[mtd-learn](https://github.com/PiotrekGa/mtd-learn) for estimating them. This post does not intend to be 
+exhaustive on the subject. References to more detailed sources will be listed at the end of the post.
+
+
+Note to R users. There is a R package [march](https://cran.r-project.org/web/packages/march/) developed and
+maintained by Andre Berchtold which can be used for estimation of the MTD models.
+
 ### Introduction
 
 The Mixture Transition Distribution (MTD) model was proposed by Raftery in 1985<sup>[1]</sup>. Its initial intent of 
@@ -11,13 +22,10 @@ was to approximate higher order Markov Chains (MC), but it can serve as an indep
 the MTD model is that its number of independent parameters of the MTD model grows linearly with the order comparing with 
 exponential growth of Markov Chains models.
 
-The aim of the post is to introduce the definitions of Markov Chain and MTD models and present a Python package 
-[mtd-learn](https://github.com/PiotrekGa/mtd-learn) for estimating them.
 
-Note to R users. There is a R package [march](https://cran.r-project.org/web/packages/march/) developed and
-maintained by Andre Berchtold which can be used for estimation of the MTD models.
+#### Model definition
 
-### Model definition
+##### Markov Chains
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png">
@@ -57,6 +65,7 @@ maintained by Andre Berchtold which can be used for estimation of the MTD models
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn7.png">
 </p>
 
+#### MTD models
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn8.png">
