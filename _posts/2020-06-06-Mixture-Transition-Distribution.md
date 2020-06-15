@@ -92,13 +92,15 @@ for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn9.png">
 </p>
 
-It is possible to depict
+It is possible to represent a high-order Markov Chain as a first-order Markov Chain. Some probabilities in the 
+transition matrix _Q_ will be equal to zero by definition (structural zeros). 
+Below is an example od 2-order MC with 3 possible states:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn10.png">
 </p>
 
-
+where
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn11.png">
