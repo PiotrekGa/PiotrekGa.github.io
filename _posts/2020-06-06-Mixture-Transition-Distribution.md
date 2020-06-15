@@ -88,23 +88,32 @@ such that:
 
 for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
 
-<p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn9.png">
-</p>
 
 It is possible to represent a high-order Markov Chain as a first-order Markov Chain. Some probabilities in the 
 transition matrix _Q_ will be equal to zero by definition (structural zeros). 
 Below is an example od 2-order MC with 3 possible states:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn10.png">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn9.png">
 </p>
 
 where
 
 <p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn10.png">
+</p>
+
+If we remove structural zeros from the _Q_ matrix we obtain its reduced form:
+
+<p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn11.png">
 </p>
+
+Please note, that the representation of _Q_ and _R_ is slightly different that the one from original paper<sup>[2]</sup>. 
+It's due to implementation convenience of the Python package `mtd-learn`.
+
+The umber of independent parameters of high-order Markov Chain is equal to _m<sup>l</sup>(m-1)_, where _m_ represents
+number of states and _l_ is the order of the model.
 
 ### MTD models
 
