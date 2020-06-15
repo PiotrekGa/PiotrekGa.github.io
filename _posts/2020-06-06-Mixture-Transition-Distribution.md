@@ -74,24 +74,24 @@ A _l_-order Markov Chain, is a stochastic process in which current state depends
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn6.png">
 </p>
 
-such that:
+
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn7.png">
 </p>
 
-for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
-
-#### MTD models
+such that:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn8.png">
 </p>
 
+for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn9.png">
 </p>
+
 
 
 <p align="center">
@@ -99,10 +99,12 @@ for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
 </p>
 
 
+
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn11.png">
 </p>
 
+#### MTD models
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn12.png">
