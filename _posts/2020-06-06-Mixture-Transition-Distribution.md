@@ -18,7 +18,7 @@ maintained by Andre Berchtold which can be used for estimation of the MTD models
 ### Introduction
 
 The Mixture Transition Distribution (MTD) model was proposed by Raftery in 1985<sup>[1]</sup>. Its initial intent of 
-was to approximate higher order Markov Chains (MC), but it can serve as an independent model too. The main advantage of 
+was to approximate high order Markov Chains (MC), but it can serve as an independent model too. The main advantage of 
 the MTD model is that its number of independent parameters of the MTD model grows linearly with the order comparing with 
 exponential growth of Markov Chains models.
 
@@ -27,13 +27,15 @@ exponential growth of Markov Chains models.
 
 ##### Markov Chains recap
 
+##### First-order Markov Chains
+
 First order Markov Chain is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png">
 </p>
 
-such that
+such that:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn1.png">
@@ -64,15 +66,21 @@ and _i<sub>1</sub>_:
 
 _Q_ is a stochastic matrix. It means that all its values are [0, 1] and sum of every row equals 1.
 
+##### High-order Markov Chains
+
+A _l_-order Markov Chain, is a stochastic process in which current state depends on _l_ last observations:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn6.png">
 </p>
 
+such that:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn7.png">
 </p>
+
+for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
 
 #### MTD models
 
