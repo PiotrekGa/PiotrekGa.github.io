@@ -41,19 +41,20 @@ such that
 
 for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
 
-<p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn2.png">
-</p>
-
+The probability can be written in an abbreviated form:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn3.png">
 </p>
 
+If we assume that for every _t_:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn4.png">
 </p>
+
+the 
+
 
 
 <p align="center">
