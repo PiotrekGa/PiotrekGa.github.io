@@ -53,7 +53,7 @@ If we assume that for every _t_:
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn4.png">
 </p>
 
-the 
+we obtain time-homogeneous Markov Chain.
 
 
 
