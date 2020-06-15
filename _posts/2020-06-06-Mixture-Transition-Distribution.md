@@ -55,11 +55,14 @@ If we assume that for every _t_:
 
 we obtain time-homogeneous Markov Chain.
 
-
+A transition matrix of a first order Markov Chain is build of all possible combination of process states _i<sub>0</sub>_
+and _i<sub>1</sub>_: 
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn5.png">
 </p>
+
+_Q_ is a stochastic matrix. It means that all its values are [0, 1] and sum of every row equals 1.
 
 
 <p align="center">
