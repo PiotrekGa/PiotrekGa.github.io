@@ -1,10 +1,10 @@
 ---
 published: false
 ---
-## 2020-06-06 Mixture Transition Distribution
+# 2020-06-06 Mixture Transition Distribution
 _Model, usage and example_
 
-### Intention
+## Intention
 
 The intention of the article is to outline the Mixture Transition Distribution model.
 A reader will find here definitions of Markov Chain and MTD models and presentation of a Python package 
@@ -15,7 +15,7 @@ exhaustive on the subject. References to more detailed sources will be listed at
 Note to R users. There is a R package [march](https://cran.r-project.org/web/packages/march/) developed and
 maintained by Andre Berchtold which can be used for estimation of the MTD models.
 
-### Introduction
+## Introduction
 
 The Mixture Transition Distribution (MTD) model was proposed by Raftery in 1985<sup>[1]</sup>. Its initial intent of 
 was to approximate high order Markov Chains (MC), but it can serve as an independent model too. The main advantage of 
@@ -23,11 +23,11 @@ the MTD model is that its number of independent parameters of the MTD model grow
 exponential growth of Markov Chains models.
 
 
-#### Model definition
+### Model definition
 
-##### Markov Chains recap
+#### Markov Chains recap
 
-##### First-order Markov Chains
+#### First-order Markov Chains
 
 First order Markov Chain is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
@@ -66,7 +66,7 @@ and _i<sub>1</sub>_:
 
 _Q_ is a stochastic matrix. It means that all its values are [0, 1] and sum of every row equals 1.
 
-##### High-order Markov Chains
+#### High-order Markov Chains
 
 A _l_-order Markov Chain, is a stochastic process in which current state depends on _l_ last observations:
 
@@ -92,7 +92,7 @@ for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn9.png">
 </p>
 
-
+It is possible to depict
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn10.png">
@@ -104,7 +104,7 @@ for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn11.png">
 </p>
 
-#### MTD models
+### MTD models
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn12.png">
@@ -140,16 +140,16 @@ for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn18.png">
 </p>
 
-### Implementation
+## Implementation
 
-### Usage example
+## Usage example
 
-### Summary
+## Summary
 
-### Final notes
+## Final notes
 LaTeX formulas were generated with [latex.codecogs.com](https://www.codecogs.com/latex/eqneditor.php)
 
-### Bibliography
+## Bibliography
 1. BERCHTOLD, RAFTERY, The mixture Transition Distribution Model for High-Order Markov Chains
 and Non-Gaussian Time Series , 2002., Statistical Science Vol. 17, No. 3, 328-356
 2. LEBRE, BOURGUIGNOM, An EM algorithm for estimation in the Mixture Transition Distribution
