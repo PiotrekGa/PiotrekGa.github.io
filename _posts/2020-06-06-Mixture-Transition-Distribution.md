@@ -74,7 +74,7 @@ A _l_-order Markov Chain, is a stochastic process in which current state depends
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn6.png">
 </p>
 
-
+and
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn7.png">
