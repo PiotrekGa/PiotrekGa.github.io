@@ -25,16 +25,21 @@ exponential growth of Markov Chains models.
 
 #### Model definition
 
-##### Markov Chains
+##### Markov Chains recap
+
+First order Markov Chain is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png">
 </p>
 
+such that
+
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn1.png">
 </p>
 
+for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn2.png">
