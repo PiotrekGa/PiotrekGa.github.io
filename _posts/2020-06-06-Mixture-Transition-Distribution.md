@@ -203,6 +203,9 @@ The log-likelihood function of the MTDg model is given by:
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn23.png">
 </p>
 
+where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
+_X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.
+
 ## Information criteria
 
 <p align="center">
