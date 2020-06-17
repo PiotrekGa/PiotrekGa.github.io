@@ -115,6 +115,27 @@ It's due to implementation convenience of the Python package `mtd-learn`.
 The umber of independent parameters of high-order Markov Chain is equal to _m<sup>l</sup>(m-1)_, where _m_ represents
 number of states and _l_ is the order of the model.
 
+Rw log likelihood of the Markov Chain model is given by formula:
+
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn19.png">
+</p>
+
+where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
+_X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.
+
+The maximum likelihood estimator of a transition _q<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ is:
+
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn20.png">
+</p>
+
+where 
+
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn21.png">
+</p>
+
 ### MTD models
 
 <p align="center">
