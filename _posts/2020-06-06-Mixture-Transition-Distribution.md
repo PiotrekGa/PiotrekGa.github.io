@@ -138,10 +138,16 @@ where
 
 ### MTD models
 
+The Mixture Transition Distribution Distribution model is a sequence of random variables _(X<sub>n</sub>)_ such that:
+
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn12.png">
 </p>
 
+where _i<sub>t</sub>...i<sub>0</sub> ∈ N_, probabilities _q<sub>i<sub>l</sub>i<sub>0</sub></sub>_ are elements of a
+_m ⨯ m Q_ matrix and _𝜆  = (𝜆 <sub>l</sub>,...,𝜆 <sub>1</sub>)<sup>T</sup>_ is a weight vector.
+
+Following conditions has to be met for the model to produce probabilities:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn13.png">
@@ -157,6 +163,14 @@ where
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn15.png">
 </p>
 
+The log-likelihood function of the MTD model is given by:
+
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn22.png">
+</p>
+
+where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
+_X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn16.png">
@@ -170,6 +184,20 @@ where
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn18.png">
+</p>
+
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn23.png">
+</p>
+
+## Information criteria
+
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn24.png">
+</p>
+
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn25.png">
 </p>
 
 ## Implementation
