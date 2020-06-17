@@ -138,7 +138,9 @@ where
 
 ### MTD models
 
-The Mixture Transition Distribution Distribution model is a sequence of random variables _(X<sub>n</sub>)_ such that:
+#### Mixture Transition  Distribution model
+
+The MTD model is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn12.png">
@@ -172,10 +174,19 @@ The log-likelihood function of the MTD model is given by:
 where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
 _X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.
 
+#### Generalized Mixture Transition  Distribution model
+
+The MTDg model is a sequence of random variables _(X<sub>n</sub>)_ such that:
+
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn16.png">
 </p>
 
+where _i<sub>t</sub>...i<sub>0</sub> ∈ N_, 𝜆  = (𝜆 <sub>l</sub>,...,𝜆 <sub>1</sub>)<sup>T</sup>_ is a weight vector and
+_Q<sub>g</sub> = [q<sup>(g)</sup><sub>i<sub>g</sub>i<sub>0</sub></sub>]_ is a _m ⨯ m_ matrix representing association
+between _g_ lag and the current state.
+
+Following conditions has to be met for the model to produce probabilities:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn17.png">
@@ -185,6 +196,8 @@ _X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</su
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn18.png">
 </p>
+
+The log-likelihood function of the MTDg model is given by:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn23.png">
