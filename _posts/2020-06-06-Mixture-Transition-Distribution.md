@@ -219,8 +219,12 @@ In case of the MTD model all the Q<sup>(1)</sup>, Q<sup>(2)</sup>, and Q<sup>(3)
 
 ### Number of independent parameters
 
-The number independent parameters of the MTDg model equals _(ml - m + 1)(l - 1)_ and for Markov Chain 
-_m<sup>l</sup>(m-1)_. You can find a comparison of the number of parameters below.
+According to [1] the number independent parameters of the MTDg model equals _lm(m-1) + l - 1_. In [2] Lebre and 
+Bourguignon proved that the true number of independent parameters equals _(ml - m + 1)(l - 1)_. Since the `mtd-learn`
+package uses the estimation method proposed in [2] the number of parameters is calculated with the latest formula.
+
+For Markov Chain the number of parameters equals _m<sup>l</sup>(m-1)_. 
+You can find a comparison of the number of parameters below:
 
 | States   |      Order    | Markov Chain | MTDg<sup>[1]</sup>  | MTDg|
 |----------|:-------------:|-------------:|--------------------:|----:|
@@ -259,10 +263,17 @@ parameters. In case of BIC number of samples is also taken into consideration.
 
 You should choose a model with the minimal value of the chosen criterion. 
 
-## Implementation
+## Implementation details
+
+### Estimation algorithm
 
 You can find the Python implementation of the model here: [mtd-learn](https://github.com/PiotrekGa/mtd-learn). The
-models are estimated using a version of EM algorithm proposed by Lebre and Bourguignon in [2]. 
+models are estimated using a version of EM algorithm proposed by Lebre and Bourguignon in [2]. Explanation of the 
+algorithm is out of scope of the post. For details please refer to the original article.
+
+### Number of independent parameters
+
+The number of independent parameters for MTDg models is calculated with the formula _(ml - m + 1)(l - 1)_ following [2].
 
 ## Usage example
 
