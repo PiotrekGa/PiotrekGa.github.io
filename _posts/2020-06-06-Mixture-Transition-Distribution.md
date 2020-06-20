@@ -217,6 +217,30 @@ shows how to calculate a probability of transition B->C->A->B from an order 3 MT
 
 In case of the MTD model all the Q<sup>(1)</sup>, Q<sup>(2)</sup>, and Q<sup>(3)</sup> matrices would be the same.
 
+### Number of independent parameters
+
+The number independent parameters of the MTDg model equals _(ml - m + 1)(l - 1)_ and for Markov Chain 
+_m<sup>l</sup>(m-1)_. You can find a comparison of the number of parameters below.
+
+| States   |      Order    | Markov Chain | MTDg<sup>[1]</sup>  | MTDg|
+|----------|:-------------:|-------------:|--------------------:|----:|
+| 2        | 1             |     2        | 2                   | 2   |
+| 2        | 2             |     4        | 3                   | 5   |
+| 2        | 3             |     8        | 4                   | 8   |
+| 2        | 4             |    16        | 5                   | 11  |
+| 3        | 1             |     6        | 6                   | 6   |
+| 3        | 2             |    18        | 10                  | 13  |
+| 3        | 3             |    54        | 14                  | 20  |
+| 3        | 4             |   162        | 18                  | 27  |
+| 5        | 1             |    20        | 20                  | 20  |
+| 5        | 2             |   100        | 36                  | 41  |
+| 5        | 3             |   500        | 52                  | 62  |
+| 5        | 4             |  2500        | 68                  | 83  |
+| 10       | 1             |    90        | 90                  | 90  |
+| 10       | 2             |   900        | 171                 | 181 |
+| 10       | 3             |  9000        | 252                 | 272 |
+| 10       | 4             | 90000        | 333                 | 363 |
+
 ## Information criteria
 
 To determine the proper order of the MTD / MTDg model you can use one of the two information criteria - 
@@ -237,6 +261,9 @@ You should choose a model with the minimal value of the chosen criterion.
 
 ## Implementation
 
+You can find the Python implementation of the model here: [mtd-learn](https://github.com/PiotrekGa/mtd-learn). The
+models are estimated using a version of EM algorithm proposed by Lebre and Bourguignon in [2]. 
+
 ## Usage example
 
 ## Summary
@@ -247,7 +274,7 @@ LaTeX formulas were generated with [latex.codecogs.com](https://www.codecogs.com
 ## Bibliography
 1. BERCHTOLD, RAFTERY, The mixture Transition Distribution Model for High-Order Markov Chains
 and Non-Gaussian Time Series , 2002., Statistical Science Vol. 17, No. 3, 328-356
-2. LEBRE, BOURGUIGNOM, An EM algorithm for estimation in the Mixture Transition Distribution
+2. LEBRE, BOURGUIGNON, An EM algorithm for estimation in the Mixture Transition Distribution
 model , Laboratoire Statistique et Genome, Universite Evry Val d'Essonne, Evry, 2009
 3. HUDSON, WON SUN KIM, KEATLEY, Series of Discrete State Processes: With an Application to Modelling Flowering 
 Synchronisation with Respect to Climate Dynamics, 2019
