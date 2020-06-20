@@ -219,7 +219,8 @@ In case of the MTD model all the Q<sup>(1)</sup>, Q<sup>(2)</sup>, and Q<sup>(3)
 
 ## Information criteria
 
-To determine the proper order of the MTD / MTDg model you can use one of the two information criteria - AIC and BIC:
+To determine the proper order of the MTD / MTDg model you can use one of the two information criteria - 
+Akaike's and Bayesian (know also as Schwarz):
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn24.png">
@@ -228,6 +229,9 @@ To determine the proper order of the MTD / MTDg model you can use one of the two
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn25.png">
 </p>
+
+The first part of each equation is model's log-likelihood. The second one is a penalty for number of independent 
+parameters. In case of BIC number of samples is also taken into consideration.
 
 You should choose a model with the minimal value of the chosen criterion. 
 
