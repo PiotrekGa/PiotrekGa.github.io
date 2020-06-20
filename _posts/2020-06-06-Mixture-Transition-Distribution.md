@@ -206,7 +206,7 @@ The log-likelihood function of the MTDg model is given by:
 where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
 _X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.iizbo
 
-### MTDg model intuition
+### MTD models intuition
 
 You can think about MTDg model as a weighted average of transition probabilities from various orders.  The example below 
 shows how to calculate a probability of transition B->C->A->B from an order 3 MTDg model:
@@ -215,7 +215,11 @@ shows how to calculate a probability of transition B->C->A->B from an order 3 MT
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/mtd.png">
 </p>
 
+In case of the MTD model all the Q<sup>(1)</sup>, Q<sup>(2)</sup>, and Q<sup>(3)</sup> matrices would be the same.
+
 ## Information criteria
+
+To determine the proper order of the MTD / MTDg model you can use one of the two information criteria - AIC and BIC:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn24.png">
@@ -224,6 +228,8 @@ shows how to calculate a probability of transition B->C->A->B from an order 3 MT
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn25.png">
 </p>
+
+You should choose a model with the minimal value of the chosen criterion. 
 
 ## Implementation
 
