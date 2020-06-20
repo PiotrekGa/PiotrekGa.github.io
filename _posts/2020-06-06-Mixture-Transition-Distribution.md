@@ -204,7 +204,16 @@ The log-likelihood function of the MTDg model is given by:
 </p>
 
 where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
-_X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.
+_X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.iizbo
+
+### MTDg model intuition
+
+You can think about MTDg model as a weighted average of transition probabilities from various orders.  The example below 
+shows how to calculate a probability of transition B->C->A->B from an order 3 MTDg model:
+
+<p align="center">
+  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/mtd.png">
+</p>
 
 ## Information criteria
 
