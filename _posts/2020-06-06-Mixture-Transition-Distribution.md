@@ -275,6 +275,68 @@ algorithm is out of scope of the post. For details please refer to the original 
 
 The number of independent parameters for MTDg models is calculated with the formula _(ml - m + 1)(l - 1)_ following [2].
 
+### Output of the model
+
+#### Transition matrices and lambda vector
+
+The `mtd-learn` package returns _Q_ matrices and the 𝜆 vector in following order:
+```
+[[[0.521, 0.479],
+  [0.404, 0.596]], # Q(3)
+
+ [[0.254, 0.746],
+  [0.569, 0.431]], # Q(2)
+
+ [[0.797, 0.203],
+  [0.542, 0.458]]] # Q(1)
+
+#lambda3, lambda2, lambda1
+[0.082,   0.122,   0.796]
+
+```
+
+#### Reconstructed MC matrices
+
+
+
+```
+R = [[0.708, 0.292],
+     [0.505, 0.495],
+     [0.746, 0.254],
+     [0.543, 0.457],
+     [0.698, 0.302],
+     [0.495, 0.505],
+     [0.737, 0.263],
+     [0.534, 0.466]]
+```
+
+```
+Q = [[0.708, 0.292, 0.   , 0.   , 0.   , 0.   , 0.   , 0.   ],
+     [0.   , 0.   , 0.505, 0.495, 0.   , 0.   , 0.   , 0.   ],
+     [0.   , 0.   , 0.   , 0.   , 0.746, 0.254, 0.   , 0.   ],
+     [0.   , 0.   , 0.   , 0.   , 0.   , 0.   , 0.543, 0.457],
+     [0.698, 0.302, 0.   , 0.   , 0.   , 0.   , 0.   , 0.   ],
+     [0.   , 0.   , 0.495, 0.505, 0.   , 0.   , 0.   , 0.   ],
+     [0.   , 0.   , 0.   , 0.   , 0.737, 0.263, 0.   , 0.   ],
+     [0.   , 0.   , 0.   , 0.   , 0.   , 0.   , 0.534, 0.466]]
+```
+
+```
+        t-3, t-2, t-1
+IDX = [( 0,   0,   0 ),
+       ( 0,   0,   1 ),
+       ( 0,   1,   0 ),
+       ( 0,   1,   1 ),
+       ( 1,   0,   0 ),
+       ( 1,   0,   1 ),
+       ( 1,   1,   0 ),
+       ( 1,   1,   1 )]
+```
+
+So if we would like to find a transition probabilities after 1->0->1, we have to choose row 6 of R (`[0.495, 0.505]`) 
+and Q (`[0.   , 0.   , 0.495, 0.505, 0.   , 0.   , 0.   , 0.   ]`).
+
+
 ## Usage example
 
 ## Summary
