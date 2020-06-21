@@ -269,8 +269,10 @@ You should choose a model with the minimal value of the chosen criterion.
 ### Estimation algorithm
 
 You can find the Python implementation of the model here: [mtd-learn](https://github.com/PiotrekGa/mtd-learn). The
-models are estimated using a version of EM algorithm proposed by Lebre and Bourguignon in [2]. Explanation of the 
-algorithm is out of scope of the post. For details please refer to the original article.
+models are estimated using a version of EM algorithm proposed by Lebre and Bourguignon in [2]. In my master's thesis
+I've checked that it yielded similar results, but was much faster and easier to implement, than the method proposed
+by Berchtold in [4]. Explanation of the EM algorithm is out of scope of the post. For details please refer to the 
+original article.
 
 ### Number of independent parameters
 
@@ -494,6 +496,25 @@ AIC: 15131.1, BIC: 15329.5
 The AIC shows we should choose order=3, but the BIC says order=2. As Segal's law states: "A man with a watch knows what 
 time it is. A man with two watches is never sure.", so choose your criterion prior to checking it's value :)
 
+We can compare it with performance of Markov Chains:
+
+```
+order = 2
+model = MTD(order=order)
+model.fit(x_tr, y_tr)
+log-likelihood value: -7528.058152541998
+AIC: 15152.1, BIC: 15469.7
+
+order = 3
+model = MarkovChain(order=order)
+model.fit(x_tr, y_tr)
+
+log-likelihood value: -7421.656650869228
+AIC: 15227.3, BIC: 16497.5
+```
+
+No matter which criterion we choose here, the MTD models seem to generalize better than Markov Chains.
+
 ## Summary
 
 ## Final notes
@@ -506,3 +527,5 @@ and Non-Gaussian Time Series , 2002., Statistical Science Vol. 17, No. 3, 328-35
 model , Laboratoire Statistique et Genome, Universite Evry Val d'Essonne, Evry, 2009
 3. HUDSON, WON SUN KIM, KEATLEY, Series of Discrete State Processes: With an Application to Modelling Flowering 
 Synchronisation with Respect to Climate Dynamics, 2019
+4. BERCHTOLD, Estimation of the Mixture Transition Distribution Model . 1999, Technical Report no. 352, Department of 
+Statistics, University of Washington
