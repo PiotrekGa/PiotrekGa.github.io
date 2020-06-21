@@ -338,10 +338,101 @@ IDX = [( 0,   0,   0 ),
        ( 1,   1,   1 )]
 ```
 
-For example, if we would like to find a transition probabilities after 1->0->1, we have to choose row 6 of R (`[0.495, 0.505]`) 
-and Q (`[0.   , 0.   , 0.495, 0.505, 0.   , 0.   , 0.   , 0.   ]`).
+For example, if we would like to find a transition probabilities after `1->0->1`, we have to choose row 6 of 
+the R matrix (`[0.495, 0.505]`) and the Q matrix (`[0.   , 0.   , 0.495, 0.505, 0.   , 0.   , 0.   , 0.   ]`).
 
 ## Usage example
+
+Let's analyze a change patterns in exchange rate between US Dollars and Euro between 1999-01-05 and 2020-04-10. You
+can find the dataset [here](https://github.com/PiotrekGa/mtd-learn/blob/master/examples/euro_usd.csv).
+Since the MTDg model work on discrete states the changes were binned into four groups:
+
+1. 0_BIG_DROP - more that 0.5% drop
+2. 1_DROP - less than 0.5% drop
+3. 2_RISE - less that 0.5% rise
+4. 3_BIG_RISE - more that 0.5% rise
+
+Let's start with imports:
+
+```
+import pandas as pd
+import numpy as np
+
+from mtdlearn.mtd import MTD
+from mtdlearn.preprocessing import PathEncoder, SequenceCutter
+```
+
+and follow with grouping code: 
+```
+df = pd.read_csv('euro_usd.csv')
+df['Change'] = df.Closing_rate.diff()
+df['Change_enc'] = np.nan
+df.loc[df.Change < 0.0, 'Change_enc'] = '1_DROP'
+df.loc[df.Change < -0.005, 'Change_enc'] = '0_BIG_DROP'
+df.loc[df.Change >= 0, 'Change_enc'] = '2_RISE'
+df.loc[df.Change >= 0.005, 'Change_enc'] = '3_BIG_RISE'
+df.dropna(inplace=True)
+
+df.Change_enc
+
+1       0_BIG_DROP
+2       0_BIG_DROP
+3       3_BIG_RISE
+4       0_BIG_DROP
+5       0_BIG_DROP
+           ...    
+5516        1_DROP
+5517    3_BIG_RISE
+5518        1_DROP
+5519    3_BIG_RISE
+5520        2_RISE
+```
+
+Now we need to transform the `pd.Series` into a more `mtdlearn`-friendly format. You can use the `SequenceCutter` class
+to do it. We will start with order=2.
+
+```
+order = 2
+
+sc = SequenceCutter(order)
+x, y = sc.transform(df.Change_enc.values)
+
+x
+array([['0_BIG_DROP>0_BIG_DROP'],
+       ['0_BIG_DROP>3_BIG_RISE'],
+       ['3_BIG_RISE>0_BIG_DROP'],
+       ...,
+       ['1_DROP>3_BIG_RISE'],
+       ['3_BIG_RISE>1_DROP'],
+       ['1_DROP>3_BIG_RISE']], dtype='<U21')
+
+y
+array(['3_BIG_RISE', '0_BIG_DROP', '0_BIG_DROP', ..., '1_DROP',
+       '3_BIG_RISE', '2_RISE'], dtype=object)
+```
+
+We can see here that each state (in vector `y`) has a two-element sequence assigned in `x`. For example, two first 
+changes `0_BIG_DROP` and `0_BIG_DROP` are followed by the `3_BIG_RISE` state.
+
+The values need to be encoded into integers. We can do it with the `PathEncoder` class:
+
+```
+pe = PathEncoder(order)
+pe.fit(x, y)
+x_tr, y_tr = pe.transform(x, y)
+
+x_tr
+array([[0, 0],
+       [0, 3],
+       [3, 0],
+       ...,
+       [1, 3],
+       [3, 1],
+       [1, 3]])
+
+y_tr
+array([3, 0, 0, ..., 1, 3, 2])
+```
 
 ## Summary
 
