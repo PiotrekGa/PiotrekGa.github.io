@@ -434,6 +434,66 @@ y_tr
 array([3, 0, 0, ..., 1, 3, 2])
 ```
 
+We can retrieve the encoding dictionary:
+
+```
+pe.label_dict
+{'0_BIG_DROP': 0, '1_DROP': 1, '2_RISE': 2, '3_BIG_RISE': 3, 'null': 4}
+```
+
+Note that there is a `null` label dedicated for missing values.
+
+To fit the model simply create the `MTD` class object and fit it:
+
+```
+model = MTD(order=order)
+model.fit(x_tr, y_tr)
+log-likelihood value: -7547.882973125838
+```
+
+You can check the values of information criteria:
+
+```
+print(f"AIC: {model.aic.round(1)}, BIC: {model.bic.round(1)}")
+AIC: 15137.8, BIC: 15276.7
+```
+
+And make predictions:
+
+```
+model.predict(np.array([[0, 0], 
+                        [1, 3]]))
+array([2, 1])
+
+model.predict_proba(np.array([[0, 0], 
+                              [1, 3]])).round(3)
+array([[0.239, 0.239, 0.306, 0.215],
+       [0.217, 0.315, 0.275, 0.192]])
+```
+
+Lets run the whole code for order=3:
+
+```
+order = 3
+​
+sc = SequenceCutter(order)
+x, y = sc.transform(df.Change_enc.values)
+
+pe = PathEncoder(order)
+pe.fit(x, y)
+x_tr, y_tr = pe.transform(x, y)
+
+model = MTD(order=order, n_jobs=-1, number_of_initiations=100)
+model.fit(x_tr, y_tr)
+print(f"AIC: {model.aic.round(1)}, BIC: {model.bic.round(1)}")
+
+log-likelihood value: -7535.536495080953
+AIC: 15131.1, BIC: 15329.5
+```
+
+The AIC shows we should choose order=3, but the BIC says order=2. As Segal's law states: "A man with a watch knows what 
+time it is. A man with two watches is never sure.", so choose your criterion prior to checking it's value :)
+
 ## Summary
 
 ## Final notes
