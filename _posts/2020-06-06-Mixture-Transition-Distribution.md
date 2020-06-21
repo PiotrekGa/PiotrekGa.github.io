@@ -258,10 +258,11 @@ Akaike's and Bayesian (know also as Schwarz):
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn25.png">
 </p>
 
-The first part of each equation is model's log-likelihood. The second one is a penalty for number of independent 
+The first part of each equation is model's log-likelihood _ln(L)_. The second one is a penalty for number of independent 
 parameters. In case of BIC number of samples is also taken into consideration.
 
-You should choose a model with the minimal value of the chosen criterion. 
+In the `mtd-learn` package you can access then with `MTD.aic` and `MTD.bic` properties. 
+You should choose a model with the minimal value of the chosen criterion.
 
 ## Implementation details
 
@@ -339,7 +340,6 @@ IDX = [( 0,   0,   0 ),
 
 For example, if we would like to find a transition probabilities after 1->0->1, we have to choose row 6 of R (`[0.495, 0.505]`) 
 and Q (`[0.   , 0.   , 0.495, 0.505, 0.   , 0.   , 0.   , 0.   ]`).
-
 
 ## Usage example
 
