@@ -11,7 +11,6 @@ A reader will find here definitions of Markov Chain and MTD models and presentat
 [mtd-learn](https://github.com/PiotrekGa/mtd-learn) for estimating them. This post does not intend to be 
 exhaustive on the subject. References to more detailed sources will be listed at the end of the post.
 
-
 Note to R users. There is a R package [march](https://cran.r-project.org/web/packages/march/) developed and
 maintained by Andre Berchtold which can be used for estimation of the MTD models.
 
@@ -391,7 +390,7 @@ df.Change_enc
 ```
 
 Now we need to transform the `pd.Series` into a more `mtdlearn`-friendly format. You can use the `SequenceCutter` class
-to do it. We will start with order=2.
+to do it. We will start with `order=2`.
 
 ```
 order = 2
@@ -473,7 +472,7 @@ array([[0.239, 0.239, 0.306, 0.215],
        [0.217, 0.315, 0.275, 0.192]])
 ```
 
-Lets run the whole code for order=3:
+Lets run the whole code for `order=3`:
 
 ```
 order = 3
@@ -493,7 +492,7 @@ log-likelihood value: -7535.536495080953
 AIC: 15131.1, BIC: 15329.5
 ```
 
-The AIC shows we should choose order=3, but the BIC says order=2. As Segal's law states: "A man with a watch knows what 
+The AIC shows we should choose `order=3`, but the BIC says `order=2`. As Segal's law states: "A man with a watch knows what 
 time it is. A man with two watches is never sure.", so choose your criterion prior to checking it's value :)
 
 We can compare it with performance of Markov Chains:
@@ -516,6 +515,8 @@ AIC: 15227.3, BIC: 16497.5
 No matter which criterion we choose here, the MTD models seem to generalize better than Markov Chains.
 
 ## Summary
+
+
 
 ## Final notes
 LaTeX formulas were generated with [latex.codecogs.com](https://www.codecogs.com/latex/eqneditor.php)
