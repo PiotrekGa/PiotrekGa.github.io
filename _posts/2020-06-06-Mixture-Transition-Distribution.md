@@ -516,7 +516,7 @@ No matter which criterion we choose here, the MTD models seem to generalize bett
 
 ## Summary
 
-
+The Generalized Mixture Transition Distribution
 
 ## Final notes
 LaTeX formulas were generated with [latex.codecogs.com](https://www.codecogs.com/latex/eqneditor.php)
