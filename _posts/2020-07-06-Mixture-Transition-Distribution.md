@@ -38,7 +38,7 @@ First-order Markov Chain is a sequence of random variables _(X<sub>n</sub>)_ suc
 such that:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn1.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn1.png">
 </p>
 
 for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
@@ -46,13 +46,13 @@ for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
 The probability can be written in an abbreviated form:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn3.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn3.png">
 </p>
 
 If we assume that for every _t_:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn4.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn4.png">
 </p>
 
 we obtain time-homogeneous Markov Chain.
@@ -61,7 +61,7 @@ A transition matrix of a first-order Markov Chain is build of all possible combi
 and _i<sub>1</sub>_: 
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn5.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn5.png">
 </p>
 
 _Q_ is a stochastic matrix. It means that all its values are [0, 1] and the sum of every row equals 1.
@@ -71,19 +71,19 @@ _Q_ is a stochastic matrix. It means that all its values are [0, 1] and the sum 
 An _l_-order Markov Chain is a stochastic process in which current state depends on _l_ last observations:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn6.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn6.png">
 </p>
 
 and
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn7.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn7.png">
 </p>
 
 such that:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn8.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn8.png">
 </p>
 
 for every _i<sub>t</sub>...i<sub>0</sub> ∈ S_, where _S_ is a state space.
@@ -94,19 +94,19 @@ transition matrix _Q_ will be equal to zero by definition (structural zeros).
 Below is an example od 2-order MC with 3 possible states:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn9.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn9.png">
 </p>
 
 where
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn10.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn10.png">
 </p>
 
 If we remove structural zeros from the _Q_ matrix we obtain its reduced form:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn11.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn11.png">
 </p>
 
 Please note, that the representation of _Q_ and _R_ is slightly different than the one from the original 
@@ -118,7 +118,7 @@ the number of states and _l_ is the order of the model.
 The log-likelihood of the Markov Chain model is given by the formula:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn19.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn19.png">
 </p>
 
 where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
@@ -127,13 +127,13 @@ _X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</su
 The maximum likelihood estimator of a transition _q<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ is:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn20.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn20.png">
 </p>
 
 where 
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn21.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn21.png">
 </p>
 
 ### MTD models
@@ -143,7 +143,7 @@ where
 The MTD model is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn12.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn12.png">
 </p>
 
 where _i<sub>t</sub>...i<sub>0</sub> ∈ N_, probabilities _q<sub>i<sub>l</sub>i<sub>0</sub></sub>_ are elements of a
@@ -152,23 +152,23 @@ _m ⨯ m Q_ matrix and _𝜆  = (𝜆 <sub>l</sub>,...,𝜆 <sub>1</sub>)<sup>T<
 Following conditions has to be met for the model to produce probabilities:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn13.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn13.png">
 </p>
 
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn14.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn14.png">
 </p>
 
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn15.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn15.png">
 </p>
 
 The log-likelihood function of the MTD model is given by:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn22.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn22.png">
 </p>
 
 where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
@@ -179,7 +179,7 @@ _X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</su
 The MTDg model is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn16.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn16.png">
 </p>
 
 where _i<sub>t</sub>...i<sub>0</sub> ∈ N_, 𝜆  = (𝜆 <sub>l</sub>,...,𝜆 <sub>1</sub>)<sup>T</sup>_ is a weight vector and
@@ -189,18 +189,18 @@ between _g_ lag and the current state.
 Following conditions has to be met for the model to produce probabilities:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn17.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn17.png">
 </p>
 
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn18.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn18.png">
 </p>
 
 The log-likelihood function of the MTDg model is given by:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn23.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn23.png">
 </p>
 
 where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
@@ -212,7 +212,7 @@ You can think about the MTDg model as a weighted average of transition probabili
 shows how to calculate a probability of transition B->C->A->B from an order 3 MTDg model:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/mtd.png">
+  <img src="https://piotrekga.github.io/images/mtd.png">
 </p>
 
 In case of the MTD model all the Q<sup>(1)</sup>, Q<sup>(2)</sup>, and Q<sup>(3)</sup> matrices would be the same.
@@ -251,11 +251,11 @@ To determine the order of the MTD / MTDg model you can use one of the two inform
 Akaike's and Bayesian (also known as Schwarz's):
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn24.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn24.png">
 </p>
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn25.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn25.png">
 </p>
 
 The first part of each equation is the model's log-likelihood _ln(L)_. The second one is a penalty for the number of
