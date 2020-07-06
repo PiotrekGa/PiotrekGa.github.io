@@ -31,8 +31,9 @@ the exponential growth of Markov Chains models.
 First-order Markov Chain is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
 <p align="center">
-  <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png">
+  <img src="https://piotrekga.github.io/images/CodeCogsEqn.png">
 </p>
+
 
 such that:
 
