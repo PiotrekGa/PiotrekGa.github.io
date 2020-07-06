@@ -12,13 +12,13 @@ A reader will find here definitions of Markov Chain and MTD models and presentat
 exhaustive on the subject. References to more detailed sources will be listed at the end of the post.
 
 Note to R users. There is a R package [march](https://cran.r-project.org/web/packages/march/) developed and
-maintained by Andre Berchtold which can be used for estimation of the MTD models.
+maintained by Andre Berchtold.
 
 ## Introduction
 
 The Mixture Transition Distribution (MTD) model was proposed by Raftery in 1985<sup>[1]</sup>. Its initial intent of 
 was to approximate high order Markov Chains (MC), but it can serve as an independent model too. The main advantage of 
-the MTD model is that its number of independent parameters of the MTD model grows linearly with the order comparing with 
+the MTD model is that its number of independent parameters of the MTD model grows linearly with the order in contrast to
 exponential growth of Markov Chains models.
 
 
@@ -111,10 +111,10 @@ If we remove structural zeros from the _Q_ matrix we obtain its reduced form:
 Please note, that the representation of _Q_ and _R_ is slightly different that the one from original paper<sup>[2]</sup>. 
 It's due to implementation convenience of the Python package `mtd-learn`.
 
-The umber of independent parameters of high-order Markov Chain is equal to _m<sup>l</sup>(m-1)_, where _m_ represents
+The number of independent parameters of high-order Markov Chain is equal to _m<sup>l</sup>(m-1)_, where _m_ represents
 number of states and _l_ is the order of the model.
 
-Rw log likelihood of the Markov Chain model is given by formula:
+The log likelihood of the Markov Chain model is given by formula:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn19.png">
@@ -203,11 +203,11 @@ The log-likelihood function of the MTDg model is given by:
 </p>
 
 where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
-_X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.iizbo
+_X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.
 
 ### MTD models intuition
 
-You can think about MTDg model as a weighted average of transition probabilities from various orders.  The example below 
+You can think about MTDg model as a weighted average of transition probabilities from subsequent lags. The example below 
 shows how to calculate a probability of transition B->C->A->B from an order 3 MTDg model:
 
 <p align="center">
@@ -246,8 +246,8 @@ You can find a comparison of the number of parameters below:
 
 ## Information criteria
 
-To determine the proper order of the MTD / MTDg model you can use one of the two information criteria - 
-Akaike's and Bayesian (know also as Schwarz):
+To determine the order of the MTD / MTDg model you can use one of the two information criteria - 
+Akaike's and Bayesian (also known as Schwarz's):
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn24.png">
@@ -258,7 +258,7 @@ Akaike's and Bayesian (know also as Schwarz):
 </p>
 
 The first part of each equation is model's log-likelihood _ln(L)_. The second one is a penalty for number of independent 
-parameters. In case of BIC number of samples is also taken into consideration.
+parameters. In case of BIC the number of samples is also taken into consideration.
 
 In the `mtd-learn` package you can access then with `MTD.aic` and `MTD.bic` properties. 
 You should choose a model with the minimal value of the chosen criterion.
@@ -272,10 +272,6 @@ models are estimated using a version of EM algorithm proposed by Lebre and Bourg
 I've checked that it yielded similar results, but was much faster and easier to implement, than the method proposed
 by Berchtold in [4]. Explanation of the EM algorithm is out of scope of the post. For details please refer to the 
 original article.
-
-### Number of independent parameters
-
-The number of independent parameters for MTDg models is calculated with the formula _(ml - m + 1)(l - 1)_ following [2].
 
 ### Output of the model
 
