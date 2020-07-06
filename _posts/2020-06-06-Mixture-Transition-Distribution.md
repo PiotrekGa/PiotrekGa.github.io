@@ -336,7 +336,8 @@ IDX = [( 0,   0,   0 ),
 ```
 
 For example, if we would like to find a transition probabilities after `1->0->1`, we have to choose row 6 of 
-the R matrix (`[0.495, 0.505]`) and the Q matrix (`[0.   , 0.   , 0.495, 0.505, 0.   , 0.   , 0.   , 0.   ]`).
+the R matrix (`[0.495, 0.505]`) or the 3rd and 4th elements of the 6th row of the Q matrix 
+(`[0.   , 0.   , 0.495, 0.505, 0.   , 0.   , 0.   , 0.   ]`).
 
 ## Usage example
 
@@ -408,7 +409,7 @@ array(['3_BIG_RISE', '0_BIG_DROP', '0_BIG_DROP', ..., '1_DROP',
        '3_BIG_RISE', '2_RISE'], dtype=object)
 ```
 
-We can see here that each state (in vector `y`) has a two-element sequence assigned in `x`. For example, two first 
+We can see here that each state (in vector `y`) has a two-element sequence assigned in `x`. For instance, two first 
 changes `0_BIG_DROP` and `0_BIG_DROP` are followed by the `3_BIG_RISE` state.
 
 The values need to be encoded into integers. We can do it with the `PathEncoder` class:
@@ -431,7 +432,7 @@ y_tr
 array([3, 0, 0, ..., 1, 3, 2])
 ```
 
-We can retrieve the encoding dictionary:
+We can access the encoding dictionary:
 
 ```
 pe.label_dict
@@ -488,8 +489,8 @@ log-likelihood value: -7535.536495080953
 AIC: 15131.1, BIC: 15329.5
 ```
 
-The AIC shows we should choose `order=3`, but the BIC says `order=2`. As Segal's law states: "A man with a watch knows what 
-time it is. A man with two watches is never sure.", so choose your criterion prior to checking it's value :)
+The AIC shows we should choose `order=3`, but the BIC says `order=2`. As Segal's law states: "A man with a watch 
+knows what time it is. A man with two watches is never sure.", so choose your criterion prior to checking it's value :)
 
 We can compare it with performance of Markov Chains:
 
