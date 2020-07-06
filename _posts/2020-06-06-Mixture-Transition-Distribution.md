@@ -1,12 +1,12 @@
 ---
 published: false
 ---
-# 2020-06-06 Mixture Transition Distribution
-_Model, usage and example_
+# 2020-06-06 Mixture Transition Distribution models
+_Model explanation and usage example_
 
 ## Intention
 
-The intention of the article is to outline the Mixture Transition Distribution model.
+The intention of the article is to outline the Mixture Transition Distribution models.
 A reader will find here definitions of Markov Chain and MTD models and presentation of a Python package 
 [mtd-learn](https://github.com/PiotrekGa/mtd-learn) for estimating them. This post does not intend to be 
 exhaustive on the subject. References to more detailed sources will be listed at the end of the post.
@@ -270,7 +270,7 @@ You should choose a model with the minimal value of the chosen criterion.
 You can find the Python implementation of the model here: [mtd-learn](https://github.com/PiotrekGa/mtd-learn). The
 models are estimated using a version of EM algorithm proposed by Lebre and Bourguignon in [2]. In my master's thesis
 I've checked that it yielded similar results, but was much faster and easier to implement, than the method proposed
-by Berchtold in [4]. Explanation of the EM algorithm is out of scope of the post. For details please refer to the 
+by Berchtold in [3]. Explanation of the EM algorithm is out of scope of the post. For details please refer to the 
 original article.
 
 ### Output of the model
@@ -513,9 +513,11 @@ No matter which criterion we choose here, the MTD models seem to generalize bett
 
 ## Summary
 
-The Generalized Mixture Transition Distribution
+The Mixture Transition Distribution models are a parsimonious alternative to finite states Markov Chains. Now the 
+`mtd-learn` package offers an easy way to use them with Python. The package is in an early stage of development. Any
+contribution or feature requests are welcome. You can find more resources regarding the models in the Bibliography
+section below. 
 
-## Final notes
 LaTeX formulas were generated with [latex.codecogs.com](https://www.codecogs.com/latex/eqneditor.php)
 
 ## Bibliography
@@ -523,7 +525,5 @@ LaTeX formulas were generated with [latex.codecogs.com](https://www.codecogs.com
 and Non-Gaussian Time Series , 2002., Statistical Science Vol. 17, No. 3, 328-356
 2. LEBRE, BOURGUIGNON, An EM algorithm for estimation in the Mixture Transition Distribution
 model , Laboratoire Statistique et Genome, Universite Evry Val d'Essonne, Evry, 2009
-3. HUDSON, WON SUN KIM, KEATLEY, Series of Discrete State Processes: With an Application to Modelling Flowering 
-Synchronisation with Respect to Climate Dynamics, 2019
-4. BERCHTOLD, Estimation of the Mixture Transition Distribution Model . 1999, Technical Report no. 352, Department of 
+3. BERCHTOLD, Estimation of the Mixture Transition Distribution Model . 1999, Technical Report no. 352, Department of 
 Statistics, University of Washington
