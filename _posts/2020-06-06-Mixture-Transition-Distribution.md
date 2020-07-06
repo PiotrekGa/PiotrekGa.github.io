@@ -6,20 +6,20 @@ _Model explanation and usage example_
 
 ## Intention
 
-The intention of the article is to outline the Mixture Transition Distribution models.
+The article intends to outline the Mixture Transition Distribution models.
 A reader will find here definitions of Markov Chain and MTD models and presentation of a Python package 
 [mtd-learn](https://github.com/PiotrekGa/mtd-learn) for estimating them. This post does not intend to be 
 exhaustive on the subject. References to more detailed sources will be listed at the end of the post.
 
-Note to R users. There is a R package [march](https://cran.r-project.org/web/packages/march/) developed and
+Note to R users. There is an R package [march](https://cran.r-project.org/web/packages/march/) developed and
 maintained by Andre Berchtold.
 
 ## Introduction
 
-The Mixture Transition Distribution (MTD) model was proposed by Raftery in 1985<sup>[1]</sup>. Its initial intent of 
+The Mixture Transition Distribution (MTD) model was proposed by Raftery in 1985<sup>[1]</sup>. Its initial intent 
 was to approximate high order Markov Chains (MC), but it can serve as an independent model too. The main advantage of 
 the MTD model is that its number of independent parameters of the MTD model grows linearly with the order in contrast to
-exponential growth of Markov Chains models.
+the exponential growth of Markov Chains models.
 
 
 ### Model definition
@@ -28,7 +28,7 @@ exponential growth of Markov Chains models.
 
 #### First-order Markov Chains
 
-First order Markov Chain is a sequence of random variables _(X<sub>n</sub>)_ such that:
+First-order Markov Chain is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn.png">
@@ -56,18 +56,18 @@ If we assume that for every _t_:
 
 we obtain time-homogeneous Markov Chain.
 
-A transition matrix of a first order Markov Chain is build of all possible combination of process states _i<sub>0</sub>_
+A transition matrix of a first-order Markov Chain is build of all possible combination of process states _i<sub>0</sub>_
 and _i<sub>1</sub>_: 
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn5.png">
 </p>
 
-_Q_ is a stochastic matrix. It means that all its values are [0, 1] and sum of every row equals 1.
+_Q_ is a stochastic matrix. It means that all its values are [0, 1] and the sum of every row equals 1.
 
 #### High-order Markov Chains
 
-A _l_-order Markov Chain, is a stochastic process in which current state depends on _l_ last observations:
+An _l_-order Markov Chain is a stochastic process in which current state depends on _l_ last observations:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn6.png">
@@ -108,13 +108,13 @@ If we remove structural zeros from the _Q_ matrix we obtain its reduced form:
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn11.png">
 </p>
 
-Please note, that the representation of _Q_ and _R_ is slightly different that the one from original paper<sup>[2]</sup>. 
-It's due to implementation convenience of the Python package `mtd-learn`.
+Please note, that the representation of _Q_ and _R_ is slightly different than the one from the original 
+paper<sup>[2]</sup>. It's due to the implementation convenience of the Python package `mtd-learn`.
 
 The number of independent parameters of high-order Markov Chain is equal to _m<sup>l</sup>(m-1)_, where _m_ represents
-number of states and _l_ is the order of the model.
+the number of states and _l_ is the order of the model.
 
-The log likelihood of the Markov Chain model is given by formula:
+The log-likelihood of the Markov Chain model is given by the formula:
 
 <p align="center">
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn19.png">
@@ -173,7 +173,7 @@ The log-likelihood function of the MTD model is given by:
 where _n<sub>i<sub>l</sub>...i<sub>0</sub></sub>_ means number of transitions of type 
 _X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</sub> = i<sub>0</sub>_ in a dataset.
 
-#### Generalized Mixture Transition  Distribution model
+#### Generalized Mixture Transition Distribution model
 
 The MTDg model is a sequence of random variables _(X<sub>n</sub>)_ such that:
 
@@ -207,7 +207,7 @@ _X<sub>t-l</sub> = i<sub>l</sub>,...,X<sub>t-1</sub> = i<sub>1</sub>,X<sub>t</su
 
 ### MTD models intuition
 
-You can think about MTDg model as a weighted average of transition probabilities from subsequent lags. The example below 
+You can think about the MTDg model as a weighted average of transition probabilities from subsequent lags. The example below 
 shows how to calculate a probability of transition B->C->A->B from an order 3 MTDg model:
 
 <p align="center">
@@ -257,8 +257,8 @@ Akaike's and Bayesian (also known as Schwarz's):
   <img src="https://github.com/PiotrekGa/PiotrekGa.github.io/blob/master/images/CodeCogsEqn25.png">
 </p>
 
-The first part of each equation is model's log-likelihood _ln(L)_. The second one is a penalty for number of independent 
-parameters. In case of BIC the number of samples is also taken into consideration.
+The first part of each equation is the model's log-likelihood _ln(L)_. The second one is a penalty for the number of
+independent parameters. In the case of BIC, the number of samples is also taken into consideration.
 
 In the `mtd-learn` package you can access then with `MTD.aic` and `MTD.bic` properties. 
 You should choose a model with the minimal value of the chosen criterion.
@@ -268,16 +268,17 @@ You should choose a model with the minimal value of the chosen criterion.
 ### Estimation algorithm
 
 You can find the Python implementation of the model here: [mtd-learn](https://github.com/PiotrekGa/mtd-learn). The
-models are estimated using a version of EM algorithm proposed by Lebre and Bourguignon in [2]. In my master's thesis
+models are estimated using a version of the Expectation-Maximization algorithm proposed by Lebre and Bourguignon in [2]. 
+In my master's thesis
 I've checked that it yielded similar results, but was much faster and easier to implement, than the method proposed
-by Berchtold in [3]. Explanation of the EM algorithm is out of scope of the post. For details please refer to the 
+by Berchtold in [3]. The explanation of the EM algorithm is out of the scope of the post. For details please refer to the 
 original article.
 
 ### Output of the model
 
 #### Transition matrices and lambda vector
 
-The `mtd-learn` package returns _Q_ matrices and the 𝜆 vector in following order:
+The `mtd-learn` package returns _Q_ matrices and the 𝜆 vector in the following order:
 ```
 mtd.transition_matrices.round(3) = array([[[0.521, 0.479], # Q3
                                            [0.404, 0.596]],
@@ -295,7 +296,7 @@ mtd.lambdas.round(3) = array([0.082,   0.122,   0.796])
 
 #### Reconstructed MC matrices
 
-Based on the MTDg model it's possible to construct a MC transition matrix. The matrix looks like follows:
+Based on the MTDg model it's possible to construct an MC transition matrix. The matrix looks like follows:
 
 ```
 mtd.transition_matrix.round(3) = array([[0.708, 0.292],
@@ -308,7 +309,7 @@ mtd.transition_matrix.round(3) = array([[0.708, 0.292],
                                         [0.534, 0.466]])
 ```
 
-The expanded version of the matrix (simulating first order MC from third order MC) looks as follows:
+The expanded version of the matrix (simulating first-order MC from third-order MC) looks as follows:
 
 ```
 mtd.expanded_matrix.round(3) = array([[0.708, 0.292, 0.   , 0.   , 0.   , 0.   , 0.   , 0.   ],
@@ -341,7 +342,7 @@ the R matrix (`[0.495, 0.505]`) or the 3rd and 4th elements of the 6th row of th
 
 ## Usage example
 
-Let's analyze a change patterns in exchange rate between US Dollars and Euro between 1999-01-05 and 2020-04-10. You
+Let's analyze change patterns in the exchange rate between US Dollars and Euro between 1999-01-05 and 2020-04-10. You
 can find the dataset [here](https://github.com/PiotrekGa/mtd-learn/blob/master/examples/euro_usd.csv).
 Since the MTDg model work on discrete states the changes were binned into four groups:
 
@@ -386,7 +387,7 @@ df.Change_enc
 5520        2_RISE
 ```
 
-Now we need to transform the `pd.Series` into a more `mtdlearn`-friendly format. You can use the `SequenceCutter` class
+Now we need to transform the `pd.Series` into a more `mtd-learn`-friendly format. You can use the `SequenceCutter` class
 to do it. We will start with `order=2`.
 
 ```
@@ -432,14 +433,14 @@ y_tr
 array([3, 0, 0, ..., 1, 3, 2])
 ```
 
-We can access the encoding dictionary:
+You can access the encoding dictionary:
 
 ```
 pe.label_dict
 {'0_BIG_DROP': 0, '1_DROP': 1, '2_RISE': 2, '3_BIG_RISE': 3, 'null': 4}
 ```
 
-Note that there is a `null` label dedicated for missing values.
+Note that there is a `null` label dedicated to missing values.
 
 To fit the model simply create the `MTD` class object and fit it:
 
@@ -469,7 +470,7 @@ array([[0.239, 0.239, 0.306, 0.215],
        [0.217, 0.315, 0.275, 0.192]])
 ```
 
-Lets run the whole code for `order=3`:
+Let's run the whole code for `order=3`:
 
 ```
 order = 3
@@ -490,9 +491,9 @@ AIC: 15131.1, BIC: 15329.5
 ```
 
 The AIC shows we should choose `order=3`, but the BIC says `order=2`. As Segal's law states: "A man with a watch 
-knows what time it is. A man with two watches is never sure.", so choose your criterion prior to checking it's value :)
+knows what time it is. A man with two watches is never sure.", so choose your criterion prior to checking its value :)
 
-We can compare it with performance of Markov Chains:
+We can compare it with the performance of Markov Chains:
 
 ```
 order = 2
